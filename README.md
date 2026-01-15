@@ -1,1 +1,1 @@
-# Demo2
+# Application to place orders for a restaurant
