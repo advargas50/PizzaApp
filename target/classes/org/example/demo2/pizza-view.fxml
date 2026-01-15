@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo2.PizzaController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="179.26290130615234" minHeight="10.0" prefHeight="154.52561950683594" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="223.63894653320312" minHeight="10.0" prefHeight="180.97438049316406" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="155.0" minHeight="0.0" prefHeight="71.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="startOrderButton" mnemonicParsing="false" text="Start Order">
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <HBox prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <CheckBox fx:id="chicagoBox" mnemonicParsing="false" text="Chicago Style">
+                           <HBox.margin>
+                              <Insets left="30.0" top="15.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="nyStyleBox" mnemonicParsing="false" text="NY Style">
+                           <HBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="70.0" prefWidth="300.0">
+                     <children>
+                        <ComboBox fx:id="pizzaTypeBox" prefHeight="26.0" prefWidth="120.0" promptText="Pizza Type">
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="sizeBox" prefHeight="26.0" prefWidth="120.0" promptText="Size">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <Label text="Crust">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="crustText" editable="false">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="pizzaImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ChicagoPizza.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="70.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="162.0" prefWidth="300.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Available Toppings">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ListView fx:id="availableToppings" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="5.0" />
+                     </VBox.margin>
+                  </ListView>
+                  <Button fx:id="addToppingButton" mnemonicParsing="false" text="Add Topping">
+                     <VBox.margin>
+                        <Insets left="30.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Selected Toppings">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ListView fx:id="selectedToppings" prefHeight="200.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="5.0" />
+                     </VBox.margin>
+                  </ListView>
+                  <Button fx:id="removeToppingButton" mnemonicParsing="false" text="Remove Topping">
+                     <VBox.margin>
+                        <Insets left="30.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="totalLabel" text="Running Total">
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="runningTotal" editable="false" onAction="#handleRunningTotal" prefHeight="26.0" prefWidth="169.0">
+                     <VBox.margin>
+                        <Insets left="30.0" right="40.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <HBox prefHeight="20.0" prefWidth="300.0">
+                     <children>
+                        <Button fx:id="menuButton" mnemonicParsing="false" onAction="#displayMainView" text="Main Menu">
+                           <HBox.margin>
+                              <Insets left="30.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="addPizzaButton" mnemonicParsing="false" text="Add Pizza">
+                           <HBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="printOrdersButton" mnemonicParsing="false" text="Print Order">
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="checkOutButton" mnemonicParsing="false" onAction="#displayCheckoutView" text="Check Out">
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <TextArea fx:id="outputArea" prefHeight="103.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <Label prefHeight="32.0" prefWidth="148.0" text="Select Your Pizza" underline="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </Label>
+   </top>
+</BorderPane>
